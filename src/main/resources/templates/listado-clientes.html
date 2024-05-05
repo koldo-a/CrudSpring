@@ -4,12 +4,12 @@
 <main>
 	<h1>Clientes</h1>
 	
-	<form th:action="@{/cliente}" method="post" th:object="${cliente}">
+	<form th:action="@{/guardarCliente}" method="post" th:object="${cliente}">
 		<input th:field="*{nombre}" placeholder="Nombre">
 		<span th:errors="*{nombre}"></span>
 		
 
-		<button>Guardar</button>
+		<button type="submit">Guardar</button>
 	</form>
 	
 </main>
