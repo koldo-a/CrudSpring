@@ -1,7 +1,6 @@
 package com.example.servicios;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +14,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Autowired
 	ClienteRepository clienteRepository;
 	
-    private List<Cliente> clientes = new ArrayList<>();
+    private Iterable<Cliente> clientes = new ArrayList<>();
 
     @Override
-    public List<Cliente> listarClientes() {
+    public Iterable<Cliente> listarClientes() {
+    	clientes = clienteRepository.findAll();
         return clientes;
     }
 
@@ -27,4 +27,16 @@ public class ClienteServiceImpl implements ClienteService {
 		cliente.setId(null);
 		clienteRepository.save(cliente);
     }
+
+	@Override
+	public void borrar(Long id) {
+		clienteRepository.deleteById(id);
+	}
+	
+	@Override
+	public void modificar(Cliente cliente) {
+		clienteRepository.save(cliente);
+	}
+	
+	
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<title>Clientes</title>
+<main>
+	<h1>Clientes</h1>
+	
+	<form th:action="@{/guardarCliente}" method="post" th:object="${cliente}">
+		<input th:field="*{nombre}" placeholder="Nombre">
+		<span th:errors="*{nombre}"></span><br>
+		<input th:field="*{apellido}" placeholder="Apellido">
+		<span th:errors="*{apellido}"></span><br>
+		<input th:field="*{email}" placeholder="Email">
+		<span th:errors="*{email}"></span><br>
+		
+
+		<button type="submit">Guardar</button>
+	</form>
+	<h2>Listado de Clientes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterar sobre la lista de clientes y mostrar cada uno -->
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="*{apellido}"></td>
+                    <td th:text="*{email}"></td>
+                </tr>
+            </tbody>
+        </table>
+	
+</main>

@@ -1,6 +1,5 @@
 package com.example.entidades;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +8,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,24 +20,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "cliente")
-public class Cliente {
-	
+@Table(name = "usuarios")
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull (message="El nombre no puede ser nulo")
-	@NotBlank (message="El nombre no puede estar vacío")
-	@Column(name = "nombre")
+
+	@NotNull
+	@NotBlank
+	@Size(min = 3, max = 100)
 	private String nombre;
 	
-	@NotNull (message="El apellido no puede ser nulo")
-	@NotBlank (message="El apellido no puede estar vacío")
-	@Column(name = "apellido")
-	private String apellido;
-	
+	@NotNull
 	@Email
-	@Column(name = "email", unique = true)
+	@Size(max = 100)
 	private String email;
+	
+	@NotNull
+	@NotBlank
+	@Size(min = 3, max = 100)
+	private String password;
+	
+	@NotNull
+	@NotBlank
+	private String rol;
 }
