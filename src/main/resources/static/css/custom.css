@@ -1,3 +1,16 @@
 .navbar-text {
 	color: #73ff00;
 }
+
+main {
+	margin: 0% 10% 0% 10%;
+}
+
+.form-control {
+	width: 80%;
+	margin: 1% 0% 1% 0%;
+}
+
+table {
+	max-width: 1000px;
+}

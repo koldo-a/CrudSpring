@@ -88,10 +88,10 @@ public class Controlador {
 		return "redirect:/listado-productos";
 	}
     
-    @GetMapping("editarCliente/{id}")
-	public String editarCliente(@PathVariable Long id, Model modelo) {
-		clienteService.modificar(modelo);
-	}
+//    @GetMapping("editarCliente/{id}")
+//	public String editarCliente(@PathVariable Long id, Model modelo) {
+//		clienteService.modificar(modelo);
+//	}
     
 	@GetMapping("login")
 	public String login() {

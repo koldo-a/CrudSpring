@@ -44,13 +44,6 @@ public class DatabaseChecker implements CommandLineRunner {
 
 		LOGGER.info("Comprobando la conexión a la base de datos...");
 
-		// Crear un cliente de ejemplo y guardarlo en la base de datos
-//    Cliente cliente = new Cliente();
-//    cliente.setNombre("Koldo");
-//    cliente.setApellido("Doe");
-//    cliente.setEmail("koldo.doe@email.com");
-//    clienteRepository.save(cliente);
-
 		// Recuperar todos los clientes de la base de datos e imprimirlos en la consola
 		Iterable<Producto> productos = productoRepository.findAll();
 		LOGGER.info("Productos en la base de datos:");
