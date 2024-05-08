@@ -12,7 +12,7 @@
 		<form th:action="@{/guardarCliente}" method="post" th:object="${cliente}">
 			<div class="form-group mb-3 mt-3  p-3">
 				<input type="hidden" th:field="*{id}">
-				<input class="form-control" th:field="*{nombre}" placeholder="Nombre">
+				<input id="primerCampo" class="form-control" th:field="*{nombre}" placeholder="Nombre" autofocus>
 				<span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
 				<input class="form-control" th:field="*{apellido}" placeholder="Apellido">
 				<span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
@@ -20,12 +20,6 @@
 				<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
 				<button class="btn btn-primary" type="submit">Guardar</button>
-				<!-- Mensajes de error -->
-				<div class="text-danger" th:if="${#fields.hasErrors()}">
-					<p class="error-message" th:each="error : ${#fields.errors('*')}">
-						<span th:text="${error}"></span>
-					</p>
-				</div>
 			</div>
 		</form>
 

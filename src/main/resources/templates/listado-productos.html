@@ -6,7 +6,7 @@
 	
 	<form th:action="@{/guardarProducto}" method="post" th:object="${producto}">
 	<div class="form-group mb-3 mt-3  p-3">
-		<input class="form-control" th:field="*{nombre}" placeholder="Nombre">
+		<input class="form-control" th:field="*{nombre}" placeholder="Nombre" autofocus>
 		<span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
 		
 		<button class="btn btn-primary" type="submit">Guardar</button>

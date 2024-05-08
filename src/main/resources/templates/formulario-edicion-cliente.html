@@ -9,8 +9,8 @@
     
     <form th:action="@{/guardarCambiosCliente}" method="post" th:object="${cliente}">
         <div class="form-group mb-3 mt-3  p-3">
-            <input type="text" th:field="*{id}">
-            <input class="form-control" th:field="*{nombre}" placeholder="Nombre">
+            <input type="hidden" th:field="*{id}">
+            <input class="form-control" th:field="*{nombre}" placeholder="Nombre" autofocus>
             <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
             <input class="form-control" th:field="*{apellido}" placeholder="Apellido">
             <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
