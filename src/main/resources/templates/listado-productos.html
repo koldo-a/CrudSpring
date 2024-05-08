@@ -8,6 +8,8 @@
 	<div class="form-group mb-3 mt-3  p-3">
 		<input class="form-control" th:field="*{nombre}" placeholder="Nombre" autofocus>
 		<span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+		<input class="form-control" th:field="*{precio}" placeholder="Precio">
+		<span class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
 		
 		<button class="btn btn-primary" type="submit">Guardar</button>
 		        <!-- Mensajes de error -->
@@ -24,6 +26,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
+                    <th>Precio</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -32,6 +35,7 @@
                 <tr th:each="producto : ${productos}">
                 	<td th:text="${producto.id}"></td>
                     <td th:text="${producto.nombre}"></td>
+                    <td th:text="${producto.precio}"></td>
                     <td><a th:href="${'borrarProducto/' + producto.id}">Borrar</a></td>
                 </tr>
             </tbody>

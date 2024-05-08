@@ -36,6 +36,7 @@ public class Producto {
 	@NotBlank
 	private String nombre;
 
+	@NotNull
 	private BigDecimal precio;
 
 	@OneToMany(mappedBy = "productos", cascade = CascadeType.ALL)
