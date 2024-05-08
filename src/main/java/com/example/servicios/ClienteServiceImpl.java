@@ -37,6 +37,13 @@ public class ClienteServiceImpl implements ClienteService {
 	public void modificar(Cliente cliente) {
 		clienteRepository.save(cliente);
 	}
-	
+
+	@Override
+	public Cliente obtenerClientePorId(Long id) {
+	    // Utiliza el método findById de clienteRepository para buscar un cliente por su ID
+	    // Si el cliente no se encuentra, findById devuelve null
+	    return clienteRepository.findById(id).orElse(null);
+	}
+
 	
 }

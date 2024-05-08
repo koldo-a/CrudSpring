@@ -7,4 +7,5 @@ public interface ClienteService {
     void guardar(Cliente cliente);
     void borrar(Long id);
 	void modificar(Cliente cliente);
+	Cliente obtenerClientePorId(Long id);
 }
